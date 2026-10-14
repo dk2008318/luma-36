@@ -18,6 +18,14 @@ button{border:0;border-radius:12px;padding:12px 16px;font-weight:800;font-size:1
 .resultcode{font-size:clamp(2.2rem,8vw,4rem);letter-spacing:.12em;font-weight:900;color:var(--accent);line-height:1.1}.resulttitle{font-size:1.45rem;font-weight:850;margin:8px 0}.scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}.scorebox{padding:12px;border:1px solid var(--line);border-radius:12px;background:#101b2c}.scorebox strong{display:block}.bar{height:6px;background:#293950;border-radius:8px;overflow:hidden;margin:8px 0}.bar span{display:block;height:100%;background:var(--accent2)}
 .typegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.typecard{border:1px solid var(--line);border-radius:14px;padding:15px;background:#101b2c}.typecard .code{font-size:1.35rem;font-weight:900;color:var(--accent)}.typecard p{margin:7px 0;color:#d4deeb}.small{font-size:.88rem}.hidden{display:none!important}footer{margin-top:30px;color:var(--muted);font-size:.85rem}
 textarea{width:100%;min-height:130px;background:#0a1422;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+
+/* LUMA-36 briefing interstitial */
+.briefing{max-width:820px;margin:22px auto 30px;padding:clamp(22px,5vw,42px);border:1px solid #344a66;border-radius:24px;background:linear-gradient(145deg,#14243aee,#0d1726f5);box-shadow:0 24px 70px #0005}
+.briefing-head{text-align:center;margin-bottom:26px}.briefing-mark{display:inline-flex;align-items:center;gap:8px;border:1px solid #46617e;border-radius:99px;padding:6px 12px;color:#a8dcff;font-size:.78rem;letter-spacing:.12em;font-weight:800}
+.briefing h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:16px 0 10px}.briefing-lead{max-width:620px;margin:0 auto;color:#c7d7e9}
+.phase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}.phase-card{padding:16px;border:1px solid #334a65;border-radius:16px;background:#ffffff05}.phase-number{font-size:.76rem;letter-spacing:.14em;color:#8bd3ff;font-weight:850}.phase-card h3{margin:6px 0}.phase-card p{margin:0;color:#aebfd3;font-size:.92rem}.briefing-check{display:flex;align-items:flex-start;gap:10px;padding:14px;border-radius:12px;background:#14263b;border:1px solid #314761;color:#d9e6f5;font-size:.9rem}.briefing-check input{margin-top:5px;accent-color:#8bd3ff;flex-shrink:0}.briefing-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.briefing-actions button{flex:1;min-width:210px}.briefing-note{text-align:center;color:#8fa3bc;font-size:.8rem;margin:14px 0 0}
+@media(max-width:600px){.phase-grid{grid-template-columns:1fr}.briefing{padding:22px 16px}.briefing-actions button{min-width:100%}}
+
 /* LUMA-36 immersive launch screen */
 .landing{position:relative;isolation:isolate;overflow:hidden;min-height:min(820px,calc(100vh - 40px));display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,6vw,64px);margin:10px 0 26px;border:1px solid #314662;border-radius:28px;background:radial-gradient(ellipse at 50% 30%,#1d3c59 0,#111e31 38%,#090f1b 78%);box-shadow:0 28px 90px #0005}
 .landing:before,.landing:after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;border:1px solid #8bd3ff35;left:50%;top:29%;transform:translate(-50%,-50%);width:min(72vw,590px);aspect-ratio:1;box-shadow:0 0 70px #4eabdf12,inset 0 0 60px #4eabdf0a;animation:orbit 32s linear infinite}
@@ -67,6 +75,23 @@ button.primary-cta:hover{transform:translateY(-2px);box-shadow:0 12px 38px #8bd3
 <p class="landing-footnote">沒有標準答案。請選擇最接近真實行為的選項，而不是你理想中的樣子。</p>
 </div>
 </main>
+<section id="briefing" class="briefing hidden" aria-labelledby="briefingTitle">
+  <div class="briefing-head">
+    <div class="briefing-mark"><span aria-hidden="true">◈</span> ACCESS GRANTED / BRIEFING 001</div>
+    <h2 id="briefingTitle">在讀取檔案前，先記住一件事。</h2>
+    <p class="briefing-lead">這不是一場分出高下的考試。系統要記錄的不是你想成為誰，而是你在真實生活中，通常如何理解、判斷與行動。</p>
+  </div>
+  <div class="notice"><strong>探索守則</strong><br>請以過去 6–12 個月的日常行為作答。沒有正確或錯誤的選項；選擇最自然、最常發生的反應即可。若兩個選項都像你，請選在時間壓力下更可能出現的那一個。</div>
+  <div class="phase-grid">
+    <article class="phase-card"><div class="phase-number">PHASE 01 / 01–10</div><h3>觀測者之眼</h3><p>你如何接收資訊、整理思緒，並與外在世界互動。</p></article>
+    <article class="phase-card"><div class="phase-number">PHASE 02 / 11–20</div><h3>判決者之庭</h3><p>當證據、原則、感受與關係同時出現，你如何權衡。</p></article>
+    <article class="phase-card"><div class="phase-number">PHASE 03 / 21–30</div><h3>未知之境</h3><p>面對變化，你會守住、調整，還是開拓新的可能。</p></article>
+    <article class="phase-card"><div class="phase-number">PHASE 04 / 31–40</div><h3>行動核心</h3><p>你如何規劃、迭代，或在當下快速回應。</p></article>
+  </div>
+  <label class="briefing-check"><input id="readyCheck" type="checkbox"><span>我了解這是一份自我觀察工具，結果描述的是偏好傾向，不是固定命運，也不是心理診斷。</span></label>
+  <div class="briefing-actions"><button id="startQuestionsBtn" class="primary-cta" type="button" disabled><span>開始第一階段</span><span aria-hidden="true">↗</span></button><button id="briefingBackBtn" type="button" class="secondary">返回序章</button></div>
+  <p class="briefing-note">約需 6–10 分鐘 · 答案在你的瀏覽器本機計分，不會自動傳送到伺服器。</p>
+</section>
 <div id="appContent" class="hidden">
 <div class="app-topbar"><div><div class="eyebrow">ARCHIVE ACCESS GRANTED</div><div class="muted small">四個階段 · 40 次選擇 · 一份自我觀察紀錄</div></div><button id="backToCover" type="button" class="secondary">返回檔案封面</button></div>
 <div class="card">
@@ -208,12 +233,25 @@ function renderTypeIndex(){
 }
 function enterArchive(){
   $("#landing").classList.add("hidden");
+  $("#briefing").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function startQuestions(){
+  if(!$("#readyCheck").checked) return;
+  $("#briefing").classList.add("hidden");
   $("#appContent").classList.remove("hidden");
   window.scrollTo({top:0,behavior:"smooth"});
   const firstQuestion=document.querySelector("#questionnaire .q");
   if(firstQuestion) firstQuestion.setAttribute("tabindex","-1");
 }
 $("#beginBtn").addEventListener("click",enterArchive);
+$("#readyCheck").addEventListener("change",()=>{$("#startQuestionsBtn").disabled=!$("#readyCheck").checked;});
+$("#startQuestionsBtn").addEventListener("click",startQuestions);
+$("#briefingBackBtn").addEventListener("click",()=>{
+  $("#briefing").classList.add("hidden");
+  $("#landing").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
 $("#backToCover").addEventListener("click",()=>{
   if(Object.keys(answers).length && !confirm("返回封面不會清除目前答案。要返回嗎？")) return;
   $("#appContent").classList.add("hidden");
