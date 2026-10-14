@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>LUMA-36｜36 型人格探索測驗</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--text:#f3f6fb;--muted:#aab8ca;--line:#2b3b53;--accent:#8bd3ff;--accent2:#b8f2d0;--danger:#ffcfb8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#182a44 0,#0b1220 55%);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+.wrap{max-width:920px;margin:auto;padding:22px 16px 60px}.hero{padding:28px 0 22px}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.12em;font-size:.78rem}.hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;margin:10px 0}.hero p{color:var(--muted);max-width:720px}.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{border:1px solid var(--line);border-radius:99px;padding:5px 11px;color:#dce8f7;font-size:.85rem}
+.card{background:rgba(17,28,46,.92);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 12px 32px #0002}.notice{border-left:3px solid var(--accent);padding:12px 14px;background:#16243a;border-radius:8px;color:#d9e6f5}
+h2{font-size:1.35rem;margin:0 0 8px}h3{font-size:1.05rem;margin:0 0 8px}.muted{color:var(--muted)}.progressrow{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.9rem}.progress{height:8px;background:#27354b;border-radius:20px;overflow:hidden;margin:10px 0 18px}.progress div{height:100%;width:0;background:linear-gradient(90deg,#8bd3ff,#b8f2d0);transition:width .2s}
+.section{margin:24px 0 8px}.section h2{margin-bottom:2px}.q{padding:18px 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}.qtitle{font-weight:750;margin-bottom:12px}.num{color:var(--accent);margin-right:6px}
+.choices{display:grid;gap:8px}.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid #33445d;background:#121f32;padding:12px;border-radius:12px;cursor:pointer;transition:.15s}.choice:hover{border-color:#7899bb}.choice:has(input:checked){border-color:var(--accent);background:#1b3047}.choice input{margin-top:5px;accent-color:#8bd3ff;flex-shrink:0}.choice span{flex:1}
+button{border:0;border-radius:12px;padding:12px 16px;font-weight:800;font-size:1rem;cursor:pointer;background:var(--accent);color:#081522}button.secondary{background:#24344c;color:var(--text);border:1px solid #40536e}button:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.actions button{flex:1;min-width:180px}
+.resultcode{font-size:clamp(2.2rem,8vw,4rem);letter-spacing:.12em;font-weight:900;color:var(--accent);line-height:1.1}.resulttitle{font-size:1.45rem;font-weight:850;margin:8px 0}.scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}.scorebox{padding:12px;border:1px solid var(--line);border-radius:12px;background:#101b2c}.scorebox strong{display:block}.bar{height:6px;background:#293950;border-radius:8px;overflow:hidden;margin:8px 0}.bar span{display:block;height:100%;background:var(--accent2)}
+.typegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.typecard{border:1px solid var(--line);border-radius:14px;padding:15px;background:#101b2c}.typecard .code{font-size:1.35rem;font-weight:900;color:var(--accent)}.typecard p{margin:7px 0;color:#d4deeb}.small{font-size:.88rem}.hidden{display:none!important}footer{margin-top:30px;color:var(--muted);font-size:.85rem}
+textarea{width:100%;min-height:130px;background:#0a1422;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+@media(max-width:600px){.wrap{padding:14px 12px 42px}.card{padding:16px}.actions button{min-width:100%}.choice{padding:11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow">ORIGINAL PERSONALITY EXPLORATION</div>
+<h1>LUMA-36<br>36 型人格探索測驗</h1>
+<p>用 40 道情境題，探索你如何整理思緒、做決定、面對變化，以及推進任務。結果不是好壞排名，而是一張理解自己行為偏好的地圖。</p>
+<div class="tagrow"><span class="tag">40 道題目</span><span class="tag">4 個維度</span><span class="tag">36 種原型</span><span class="tag">可複製結果</span></div>
+</header>
+<div class="card">
+<h2>作答前請先看</h2>
+<div class="notice">請以過去 6–12 個月最常出現的真實行為作答，不要選你認為最理想的答案。每題選一個最接近你的選項；如果兩個都符合，選擇在時間壓力下更自然的反應。</div>
+<p class="muted small">LUMA-36 目前是原創原型測驗，尚未經正式心理計量驗證，不是心理診斷工具，也不應單獨用於招聘、醫療或重大人生決策。</p>
+<div class="progressrow"><span id="progressLabel">已完成 0 / 40 題</span><span id="progressPct">0%</span></div><div class="progress"><div id="progressBar"></div></div>
+<div id="questionnaire"></div>
+<div class="actions"><button id="submitBtn">計算我的人格結果</button><button class="secondary" id="resetBtn">清除重做</button></div>
+<p id="missing" class="muted small"></p>
+</div>
+<section id="results" class="hidden">
+<div class="card">
+<div class="eyebrow">YOUR LUMA-36 PROFILE</div>
+<h2>你的測驗結果</h2>
+<div class="resultcode" id="resultCode">----</div><div class="resulttitle" id="resultName"></div>
+<p id="resultIntro" class="muted"></p>
+<div id="scoreGrid" class="scoregrid"></div>
+<div class="actions"><button id="copyResult">複製我的結果</button><button class="secondary" id="shareResult">分享測驗／結果</button><button class="secondary" id="downloadResult">下載結果 .txt</button></div>
+<p id="copyStatus" class="muted small" aria-live="polite"></p>
+<h3>你的四個維度</h3><div id="dimensionExplain"></div>
+<h3 style="margin-top:20px">人格解讀</h3><div id="typeExplain"></div>
+<div class="notice small" style="margin-top:16px">這是偏好傾向的描述，不是對你全部人格的定論。不同工作、關係與壓力情境都可能讓你的行為改變。</div>
+</div>
+</section>
+<div class="card">
+<h2>36 型人格索引</h2>
+<p class="muted">可以先閱讀全部原型的簡介。每一型由四個維度組合而成，並沒有最好或最差的型態。</p>
+<div class="typegrid" id="typeIndex"></div>
+</div>
+<footer>© LUMA-36 Prototype · 本頁在瀏覽器本機計分，不會自動將答案傳送到伺服器。若要讓所有人透過公開網址作答，請將此 HTML 部署到靜態網站服務。</footer>
+</div>
+<script>
+const DATA = {"sections": [{"key": "L", "name": "第一部分｜注意力落點", "desc": "第 1–10 題", "opts": [["O", "外部導向"], ["I", "內部導向"]], "qs": [["遇到複雜問題時，我通常會", "找人討論，邊說邊整理思路", "先自己思考，整理好再表達"], ["經歷一件重要的事後，我更常", "立刻跟別人分享，從交流中理解", "先自己消化，再決定是否分享"], ["進入陌生團體時，我通常", "主動互動，藉此熟悉環境", "先觀察環境，再選擇互動對象"], ["需要產生新想法時，我偏好", "透過腦力激盪與即時交流", "透過獨立思考與安靜整理"], ["工作卡住時，我比較常", "找人討論，快速交換觀點", "暫時獨處，釐清真正的問題"], ["連續忙碌一天後，我較容易恢復精神的方式是", "與熟悉的人互動或外出", "獨處、安靜或減少刺激"], ["面對尚未成形的想法，我會", "先說出來，讓想法在交流中成形", "先整理成比較完整的想法再說"], ["參加活動時，我通常", "透過多方交流擴展經驗", "透過少數深入交流獲得滿足"], ["做重要決定前，我更常", "先蒐集不同人的觀點", "先建立自己的判斷，再聽取意見"], ["長時間沒有互動時，我通常", "會主動尋找交流或外部刺激", "能持續投入自己的事情，不急著互動"]]}, {"key": "U", "name": "第二部分｜決策依據", "desc": "第 11–20 題", "opts": [["R", "理據優先"], ["H", "人本優先"]], "qs": [["團隊出現爭議時，我第一個想釐清的是", "哪個方案有更充分的證據與效益", "各方在意什麼，以及如何維持信任"], ["指出別人的錯誤時，我通常更重視", "資訊是否正確、問題是否解決", "對方能否理解並接受這個提醒"], ["必須在效率與照顧個別感受之間取捨時，我傾向", "先確保原則、公平與整體效率", "先衡量個別影響與關係代價"], ["評估一項工作成果時，我最先看", "品質、結果、成本與可驗證的標準", "是否符合人的需求與共同價值"], ["朋友向我抱怨問題時，我通常先", "分析原因，協助找出解決方案", "理解他的感受，確認他需要什麼支持"], ["制定規則時，我認為最重要的是", "一致、可執行、理由清楚", "合理照顧差異，讓人願意遵守"], ["兩個方案各有利弊時，我優先比較", "證據、風險、成本與長期效益", "對相關人士的影響與價值衝突"], ["面對表現不佳的合作夥伴時，我通常", "直接指出差距並訂出改善標準", "先了解困難，再一起商量改善方式"], ["我最難接受的決策問題是", "標準不一致、論證不成立", "忽略人性、傷害信任或違背重要價值"], ["當事實與某人的期待不一致時，我較傾向", "先忠於證據，再尋找可接受的表達方式", "先照顧對方的理解與情緒，再協助面對事實"]]}, {"key": "M", "name": "第三部分｜面對變化", "desc": "第 21–30 題", "opts": [["S", "穩定型"], ["A", "適應型"], ["X", "探索型"]], "qs": [["原本熟悉的工作流程被改變時，我會", "先確認原流程的價值，避免不必要的變動", "比較新舊做法，再決定如何調整", "把它當成重新設計整個流程的機會"], ["接到陌生任務時，我比較想", "先取得明確規則與可參考範例", "先理解要求，再邊做邊調整", "先探索不同可能性，甚至重新定義任務"], ["面對沒有標準答案的問題，我通常", "尋找可靠方法，降低不確定性", "先試行可行方案，根據結果調整", "提出不同假設，尋找突破性解法"], ["一個已經有效的制度，我傾向", "保留有效部分，只做必要修正", "隨情況調整制度的細節", "定期挑戰原有假設，尋找新架構"], ["突然出現新的機會時，我會", "先評估它是否影響既有承諾與穩定", "評估條件後，視情況改變安排", "優先研究它可能帶來的新方向"], ["學習新技能時，我更喜歡", "循序漸進，打穩基礎", "先學必要部分，再依需求補足", "先廣泛探索，再自行組合方法"], ["當計畫遇到意外時，我通常", "盡可能恢復原計畫或建立新秩序", "調整受影響的部分，繼續推進", "重新思考目標是否需要改變"], ["面對市場或環境快速變動時，我會", "優先守住已驗證、可靠的做法", "保留核心，同時調整策略", "主動尋找尚未被發現的機會"], ["在討論新點子時，我通常", "先確認可行性與實際需求", "比較創新與落地的平衡", "先擴大可能性，不急著排除新想法"], ["對我而言，最理想的成長方式是", "把有效的方法做得更穩、更好", "持續學習並靈活調整", "不斷探索、突破與重新定義"]]}, {"key": "A", "name": "第四部分｜任務推進節奏", "desc": "第 31–40 題", "opts": [["P", "規劃型"], ["T", "迭代型"], ["F", "即應型"]], "qs": [["面對一項大型任務時，我通常", "先拆解步驟、期限與責任", "先做出可測試的初版，再逐步修正", "先處理眼前最關鍵的事情，邊做邊決定"], ["當資訊還不完整時，我比較會", "先補足關鍵資訊，再制定計畫", "先做低風險試驗，取得回饋", "先採取可逆的行動，避免錯失時機"], ["開始一個新專案時，我偏好", "先把目標、資源與流程定清楚", "先建立雛形，再讓成果逐漸成形", "先投入實際情境，抓住當下需求"], ["進度落後時，我通常", "重新排程，明確調整優先順序", "找出瓶頸，試驗更有效的流程", "立刻集中資源處理最急迫的問題"], ["完成一項成果前，我通常", "依照既定標準逐項確認", "透過多輪測試和修正提高品質", "在關鍵需求已滿足時及時交付"], ["面對臨時插入的工作時，我會", "評估它對原計畫的影響，再調整排程", "重新安排工作順序並持續修正", "優先回應當下最急迫的需求"], ["我最容易進入狀態的工作方式是", "目標、順序與完成標準清楚", "有回饋、有試錯空間、能逐步改善", "有自主權，可以快速決定與行動"], ["當某個方案尚未成熟時，我傾向", "先補齊規劃與必要條件", "先做小規模版本來驗證", "先採取行動，利用現場反應找方向"], ["面對期限明確的工作，我會", "提前安排進度，預留緩衝時間", "分階段交付，依回饋調整內容", "隨情勢集中火力，接近期限時快速完成"], ["如果可以自由選擇，我希望", "先規劃好再開始，減少混亂", "開始後持續修正，讓成果逐漸變好", "保有彈性，遇到機會就迅速行動"]]}], "descs": {"O": "外部導向：傾向透過交流、表達與外界回饋整理思緒；不等於一定健談或不需要獨處。", "I": "內部導向：傾向先在心中整理資訊，再決定如何表達；不等於害羞或不擅長社交。", "R": "理據優先：衝突時較先檢視證據、因果、一致性與效益；不代表缺乏同理心。", "H": "人本優先：決策時較先考慮人的需求、價值、信任與關係影響；不代表不理性。", "S": "穩定型：偏好可靠方法、清楚規則與漸進改善；優勢是穩定，風險是可能抗拒必要變革。", "A": "適應型：傾向保留有效核心並依情境調整；優勢是平衡，風險是可能過度折衷。", "X": "探索型：偏好新可能性、挑戰假設與重新定義問題；優勢是創新，風險是可能低估落地成本。", "P": "規劃型：先安排目標、步驟、期限與標準；優勢是有序，風險是可能過度準備。", "T": "迭代型：先做出可測試版本，再依回饋修正；優勢是持續改善，風險是可能一直調整。", "F": "即應型：依現場資訊與機會快速行動；優勢是反應快，風險是可能忽略長期規劃。"}, "type_names": {"ORSP": "流程建構者", "ORST": "品質優化者", "ORSF": "現場解題者", "ORAP": "策略協調者", "ORAT": "實證改進者", "ORAF": "機動解題者", "ORXP": "系統革新者", "ORXT": "實驗推進者", "ORXF": "機會開拓者", "OHSP": "關係守護者", "OHST": "照顧改善者", "OHSF": "即時支持者", "OHAP": "共識設計者", "OHAT": "體驗調整者", "OHAF": "人際調度者", "OHXP": "願景凝聚者", "OHXT": "共創探索者", "OHXF": "人群催化者", "IRSP": "原則架構師", "IRST": "深度精修者", "IRSF": "冷靜排障者", "IRAP": "策略分析者", "IRAT": "獨立驗證者", "IRAF": "自主解決者", "IRXP": "概念建模者", "IRXT": "假設探索者", "IRXF": "自主突破者", "IHSP": "價值守序者", "IHST": "內在修養者", "IHSF": "安靜守護者", "IHAP": "同理規劃者", "IHAT": "感受整合者", "IHAF": "情境陪伴者", "IHXP": "價值願景者", "IHXT": "意義探索者", "IHXF": "信念實踐者"}, "type_detail": {"ORSP": ["擅長組織團隊、訂定標準、控管風險。", "可能過度依賴既有制度，低估新方法。", "定期檢驗流程是否仍有效。"], "ORST": ["善於排錯、優化細節、累積可複製經驗。", "可能花太多時間微調，延後重大決策。", "替改善設定停止條件。"], "ORSF": ["務實、反應直接、危機處理有條理。", "可能只修復眼前問題，忽略根因。", "事件後補做根因分析。"], "ORAP": ["兼顧全局、調整能力佳、整合不同意見。", "可能因持續協調而延後定案。", "區分可調整事項與必須定案事項。"], "ORAT": ["學習快、願意修正、重視實際效果。", "可能頻繁調整，讓團隊失去一致方向。", "固定檢討週期。"], "ORAF": ["反應靈活、善於協調、快速處理突發狀況。", "可能忽略長期優先事項。", "每天安排時間處理重要但不緊急的任務。"], "ORXP": ["擅長策略思考、系統設計與把構想落地。", "可能高估新系統效益，低估轉換成本。", "先小規模驗證。"], "ORXT": ["創新、快速學習、能從失敗提取資訊。", "可能同時開展太多試驗。", "限制同時進行的實驗數並定義成功指標。"], "ORXF": ["主動、善於發現機會、推動新方向。", "可能忽略成本與後續收尾。", "事先確認風險並安排收尾責任。"], "OHSP": ["可靠、重視承諾、能建立信任。", "可能為維持和諧而延後必要改變。", "把提出異議視為維護關係的一部分。"], "OHST": ["細心、耐心、能改善服務與合作體驗。", "容易承擔過多照顧責任。", "先確認需求與責任界線。"], "OHSF": ["有責任感、願意協助、維持團隊運作。", "可能未確認對方是否需要這種幫助。", "先詢問對方需要傾聽、建議或實際協助。"], "OHAP": ["善於協調、建立共識、整合不同立場。", "可能過度追求人人滿意。", "先定義不可妥協的核心目標。"], "OHAT": ["同理、善於接收回饋、改善合作體驗。", "可能太在意外界反應。", "區分建設性回饋與單純不滿。"], "OHAF": ["親和、機動、迅速回應團隊需求。", "可能不斷回應別人而被打斷。", "建立求助優先級與界線。"], "OHXP": ["能激發投入、建立使命感、看見人的潛能。", "可能低估願景的實施難度。", "把願景轉成里程碑與資源需求。"], "OHXT": ["開放、善於共創、融合多元觀點。", "可能因討論過多而難以定案。", "預先約定決策者與討論期限。"], "OHXF": ["有感染力、號召力，能快速啟動合作。", "可能忽略後續責任與執行條件。", "明確安排資源、負責人與收尾。"], "IRSP": ["獨立、嚴謹，擅長建立制度與標準。", "可能過度相信既有模型。", "主動尋找能推翻自己假設的證據。"], "IRST": ["專注、精確，善於深度分析與除錯。", "可能陷入細節而延後交付。", "預先設定完成標準與期限。"], "IRSF": ["沉著、獨立，擅長處理複雜問題。", "可能太晚求助或未同步進度。", "建立求援門檻並在關鍵節點同步資訊。"], "IRAP": ["思路縝密、善於預測風險與設計備案。", "可能讓決策過度複雜。", "只保留最重要的幾種情境。"], "IRAT": ["求證精神強、重視可重現性、能修正錯誤。", "可能持續驗證而遲遲不決。", "依風險設定證據門檻。"], "IRAF": ["自主、務實，不易因缺乏指導而停滯。", "可能忽略他人掌握的資訊。", "重要決策前向相關人士確認盲區。"], "IRXP": ["擅長概念整合、原創思考與結構分析。", "可能建立出不符合現實需求的模型。", "把模型轉成可檢驗的案例或原型。"], "IRXT": ["好奇、敢挑戰假設、探索非典型解法。", "可能忽略重複驗證與長期維護。", "為每個假設設定測試方法與停止條件。"], "IRXF": ["自主、勇於試驗，能在無明確指引時開路。", "可能低估外部風險。", "建立風險檢查與回報機制。"], "IHSP": ["忠誠、可靠，重視原則與長期責任。", "可能難以接受合理但不同的生活方式。", "區分核心價值與可調整習慣。"], "IHST": ["自省、細膩，能長期培養習慣與關係。", "可能反覆檢討卻不把需求說出口。", "把反思轉成具體行動並表達需求。"], "IHSF": ["體貼、穩定，重視承諾與實際照顧。", "可能默默承擔太多。", "明確說出需要與界線。"], "IHAP": ["理解個別差異，重視公平感與長期關係。", "可能過度替他人考慮。", "把自己的需求列入同等重要的考量。"], "IHAT": ["自我覺察佳，理解複雜情緒並願意修正關係模式。", "可能過度解讀互動。", "直接而尊重地確認對方想法。"], "IHAF": ["體察細微、反應溫和，能提供個別化關懷。", "可能因對方情緒而忽略自身立場。", "同理後也確認自己願意承擔的責任。"], "IHXP": ["有理想感與原創性，能辨認重要價值。", "可能把理想放得太遠。", "拆成可執行階段，接受不完美起點。"], "IHXT": ["想像力、深度反思，理解多元價值。", "可能停留在思考而未驗證現實。", "每次反思都配一個小行動。"], "IHXF": ["真誠、自主，願意為重視的事情行動。", "可能把堅持信念與拒絕修正混為一談。", "守住價值，同時讓策略接受證據檢驗。"]}};
+const $ = s => document.querySelector(s);
+const allQs = [];
+DATA.sections.forEach((sec,si)=>sec.qs.forEach((q,i)=>allQs.push({sec, q, i, n:si*10+i+1})));
+const answers = {};
+function renderQuestions(){
+ const root=$("#questionnaire"); root.innerHTML="";
+ DATA.sections.forEach((sec,si)=>{
+   const block=document.createElement("div"); block.className="section";
+   block.innerHTML=`<h2>${sec.name}</h2><div class="muted small">${sec.desc} · ${sec.opts.map(o=>o[0]+" "+o[1]).join(" / ")}</div>`;
+   sec.qs.forEach((q,i)=>{
+     const n=si*10+i+1, id=sec.key+"-"+i;
+     const el=document.createElement("div");el.className="q";
+     const title=document.createElement("div");title.className="qtitle";title.innerHTML=`<span class="num">${String(n).padStart(2,"0")}.</span>${q[0]}`;el.appendChild(title);
+     const choices=document.createElement("div");choices.className="choices";
+     sec.opts.forEach((opt,j)=>{
+       const label=document.createElement("label");label.className="choice";
+       const input=document.createElement("input");input.type="radio";input.name=id;input.value=opt[0];input.checked=answers[id]===opt[0];
+       input.addEventListener("change",()=>{answers[id]=opt[0];updateProgress();});
+       const span=document.createElement("span");span.textContent=q[j+1];
+       label.append(input,span);choices.appendChild(label);
+     });
+     el.appendChild(choices);block.appendChild(el);
+   });
+   root.appendChild(block);
+ });
+ updateProgress();
+}
+function updateProgress(){
+ const count=Object.keys(answers).length,pct=Math.round(count/40*100);
+ $("#progressLabel").textContent=`已完成 ${count} / 40 題`;$("#progressPct").textContent=pct+"%";$("#progressBar").style.width=pct+"%";
+}
+function score(){
+ return DATA.sections.map(sec=>{
+  const counts={};sec.opts.forEach(o=>counts[o[0]]=0);
+  sec.qs.forEach((q,i)=>{const v=answers[sec.key+"-"+i];if(v)counts[v]++;});
+  const max=Math.max(...Object.values(counts));const winners=sec.opts.filter(o=>counts[o[0]]===max);
+  return {sec,counts,winners,code:winners.length===1?winners[0][0]:null};
+ });
+}
+function typeText(code){
+ const name=DATA.type_names[code],detail=DATA.type_detail[code];
+ const d1=DATA.descs[code[0]],d2=DATA.descs[code[1]],d3=DATA.descs[code[2]],d4=DATA.descs[code[3]];
+ return {name,detail,d1,d2,d3,d4};
+}
+function resultText(sc){
+ const code=sc.map(s=>s.code||"["+s.winners.map(x=>x[0]).join("/") +"]").join("");
+ let out=`LUMA-36 人格探索測驗結果\\n代碼：${code}\\n`;
+ if(sc.every(s=>s.code)){const t=typeText(code);out+=`型態：${t.name}\\n\\n核心傾向：\\n${t.d1}\\n${t.d2}\\n${t.d3}\\n${t.d4}\\n\\n優勢：${t.detail[0]}\\n可能盲點：${t.detail[1]}\\n成長方向：${t.detail[2]}\\n`;}
+ out+="\\n各維度分數：\\n";
+ sc.forEach(s=>out+=`${s.sec.name}：${s.sec.opts.map(o=>o[0]+" "+o[1]+" "+s.counts[o[0]]+"/10").join("；")}\\n`);
+ out+="\\n說明：此為原創原型測驗，尚未經正式心理計量驗證，不是心理診斷。";
+ return out;
+}
+function renderResult(){
+ const sc=score(),missing=40-Object.keys(answers).length;
+ if(missing){$("#missing").textContent=`還有 ${missing} 題未作答。你可以繼續作答，或先計算暫時結果。`;if(!confirm(`還有 ${missing} 題未作答，要用目前答案計算暫時結果嗎？`))return;}
+ $("#results").classList.remove("hidden");$("#copyStatus").textContent="";
+ const code=sc.map(s=>s.code||s.winners.map(x=>x[0]).join("/")).join("");
+ $("#resultCode").textContent=code;
+ const unique=sc.every(s=>s.code);
+ if(unique){
+  const t=typeText(code);$("#resultName").textContent=t.name;
+  $("#resultIntro").textContent="你的代碼由四個獨立維度組成。以下解讀是可能的行為偏好，不是固定人格定論。";
+  $("#typeExplain").innerHTML=`<p><strong>整體輪廓：</strong>${t.d1} ${t.d2} ${t.d3} ${t.d4}</p><p><strong>優勢：</strong>${t.detail[0]}</p><p><strong>可能盲點：</strong>${t.detail[1]}</p><p><strong>成長方向：</strong>${t.detail[2]}</p>`;
+ }else{
+  $("#resultName").textContent="有維度出現平分";
+  $("#resultIntro").textContent="並列維度代表你的答案沒有形成單一最高分。請將結果視為混合傾向，不強行指定一型。";
+  $("#typeExplain").innerHTML="<p>建議查看各維度分數，並回想相關情境中你最常採取的行為。未來版本可加入補充題處理平分。</p>";
+ }
+ $("#scoreGrid").innerHTML=sc.map(s=>{
+  const max=Math.max(...Object.values(s.counts));
+  return `<div class="scorebox"><strong>${s.sec.name}</strong>${s.sec.opts.map(o=>`<div class="small">${o[0]}｜${o[1]}：${s.counts[o[0]]}/10</div><div class="bar"><span style="width:${s.counts[o[0]]*10}%"></span></div>`).join("")}<div class="small muted">最高傾向：${s.winners.map(w=>w[0]+" "+w[1]).join(" / ")}</div></div>`;
+ }).join("");
+ $("#dimensionExplain").innerHTML=sc.map(s=>`<p><strong>${s.sec.name}：</strong>${s.winners.map(w=>w[0]+"｜"+w[1]).join(" / ")}。${s.winners.map(w=>DATA.descs[w[0]]).join(" ")}</p>`).join("");
+ window.lastLumaResult=resultText(sc);window.lastLumaCode=code;
+ $("#results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+async function copyText(text){
+ try{await navigator.clipboard.writeText(text);$("#copyStatus").textContent="已複製到剪貼簿，可以貼到 LINE、社群或訊息中。";}
+ catch(e){const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();const ok=document.execCommand("copy");ta.remove();$("#copyStatus").textContent=ok?"已複製到剪貼簿，可以貼到 LINE、社群或訊息中。":"無法自動複製，請選取下方文字手動複製。";if(!ok)showCopyFallback(text);}
+}
+function showCopyFallback(text){const ta=document.createElement("textarea");ta.value=text;ta.id="fallbackText";$("#copyStatus").after(ta);ta.focus();ta.select();}
+function downloadText(text){
+ const blob=new Blob([text],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="LUMA-36-人格測驗結果.txt";a.click();URL.revokeObjectURL(url);
+}
+$("#submitBtn").addEventListener("click",renderResult);
+$("#resetBtn").addEventListener("click",()=>{if(confirm("確定清除所有答案並重新作答？")){Object.keys(answers).forEach(k=>delete answers[k]);$("#results").classList.add("hidden");$("#missing").textContent="";renderQuestions();window.scrollTo({top:0,behavior:"smooth"});}});
+$("#copyResult").addEventListener("click",()=>copyText(window.lastLumaResult||"請先完成測驗並計算結果。"));
+$("#shareResult").addEventListener("click",async()=>{
+ const text="我剛完成 LUMA-36 36 型人格探索測驗！\\n你也可以作答：請把這個網頁檔案分享給朋友，或將它部署成公開網址後分享。\\n我的結果：\\n"+(window.lastLumaResult||"尚未計算結果");
+ if(navigator.share){try{await navigator.share({title:"LUMA-36 人格測驗結果",text,url:location.protocol.startsWith("http")?location.href:undefined});$("#copyStatus").textContent="已開啟分享功能。";}catch(e){}}
+ else copyText(text);
+});
+$("#downloadResult").addEventListener("click",()=>downloadText(window.lastLumaResult||"請先完成測驗並計算結果。"));
+function renderTypeIndex(){
+ const root=$("#typeIndex");let html="";
+ Object.keys(DATA.type_names).forEach(code=>{
+  const t=typeText(code);
+  html+=`<article class="typecard"><div class="code">${code}</div><strong>${t.name}</strong><p class="small">${t.d1} ${t.d2}</p><p class="small"><strong>優勢：</strong>${t.detail[0]}</p><p class="small"><strong>提醒：</strong>${t.detail[1]}</p></article>`;
+ });
+ root.innerHTML=html;
+}
+renderQuestions();renderTypeIndex();
+</script>
+</body></html>
